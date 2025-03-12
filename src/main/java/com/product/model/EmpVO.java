@@ -18,6 +18,7 @@ public class EmpVO implements java.io.Serializable{
 		super();
 		this.empno = empno;
 		this.ename = ename;
+		
 		this.job = job;
 		this.hiredate = hiredate;
 		this.sal = sal;
