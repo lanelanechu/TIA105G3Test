@@ -7,10 +7,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import news_status.NewsStatusVO;
-
 public class NewsDAO implements NewsDAO_interface {
 
+	//FIRST COMMIT
 	// 一個應用程式中,針對一個資料庫 ,共用一個DataSource即可
 	private static DataSource ds = null;
 	static {
