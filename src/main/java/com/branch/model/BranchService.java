@@ -11,15 +11,15 @@ public class BranchService {
         dao = new BranchJDBCDAO();
     }
 
-    public BranchVO addBranch( String branch_name, String branch_addr, 
-            Integer space_qty, Double latitude, Double longitude, 
+    public BranchVO addBranch( String branchName, String branchAddr, 
+            Integer spaceQty, Double latitude, Double longitude, 
             Integer branchStatus) {
 
         BranchVO branchVO = new BranchVO();
 
-        branchVO.setBranch_name(branch_name);
-        branchVO.setBranch_addr(branch_addr);
-        branchVO.setSpace_qty(space_qty);
+        branchVO.setBranchName(branchName);
+        branchVO.setBranchAddr(branchAddr);
+        branchVO.setSpaceQty(spaceQty);
         branchVO.setLatitude(latitude);
         branchVO.setLongitude(longitude);
         branchVO.setBranchStatus(branchStatus);
@@ -29,16 +29,16 @@ public class BranchService {
         return branchVO;
     }
 
-    public BranchVO updateBranch(String branch_id, String branch_name, String branch_addr, 
-            Integer space_qty, Double latitude, Double longitude, 
+    public BranchVO updateBranch(String branchId, String branchName, String branchAddr, 
+            Integer spaceQty, Double latitude, Double longitude, 
             Integer branchStatus) {
 
         BranchVO branchVO = new BranchVO();
 
-        branchVO.setBranch_id(branch_id);
-        branchVO.setBranch_name(branch_name);
-        branchVO.setBranch_addr(branch_addr);
-        branchVO.setSpace_qty(space_qty);
+        branchVO.setBranchId(branchId);
+        branchVO.setBranchName(branchName);
+        branchVO.setBranchAddr(branchAddr);
+        branchVO.setSpaceQty(spaceQty);
         branchVO.setLatitude(latitude);
         branchVO.setLongitude(longitude);
         branchVO.setBranchStatus(branchStatus);
@@ -48,12 +48,12 @@ public class BranchService {
         return branchVO;
     }
 
-    public void deleteBranch(String branch_id) {
-        dao.delete(branch_id);
+    public void deleteBranch(String branchId) {
+        dao.delete(branchId);
     }
 
-    public BranchVO getOneBranch(String branch_id) {
-        return dao.findByPrimaryKey(branch_id);
+    public BranchVO getOneBranch(String branchId) {
+        return dao.findByPrimaryKey(branchId);
     }
 
     public List<BranchVO> getAll() {
