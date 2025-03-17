@@ -205,7 +205,7 @@ public class AdminDAO implements AdminDAO_interface {
 
 		List<AdminVO> list = new ArrayList<AdminVO>();
 		AdminVO adminVO = null;
-
+		System.out.println(1);
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
