@@ -10,5 +10,5 @@ public interface AdminDAO_interface {
 	public void delete(String adminId);
 	public AdminVO findByPrimaryKey(String adminId);
 	public List<AdminVO> getAll();
-
+	
 }
