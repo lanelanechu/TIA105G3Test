@@ -147,9 +147,9 @@ textarea.form-control {
 
 		<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/backend/space/space.do" name="form1">
 		<%-- 	<jsp:useBean id="branchSvc" scope="page" class="com.dept.model.BranchService" /> --%>
-			<div>
-				<label>空間編號:</label>
-				<span><%=spaceVO.getSpaceId()%></span>
+			<div class="form-group">
+				<label for="spaceId">空間編號:</label>
+				<input type="text" id="spaceId" name="spaceId" class="form-control" value="<%=(spaceVO == null) ? "" : spaceVO.getSpaceId()%>" disabled>
 			</div>
 			<div class="form-group">
 				<label for="branchId">所屬分店編號:</label> 

@@ -27,7 +27,7 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 
 	// 獲取下一個流水號
 		
-		private String getNextBranch_id() throws SQLException {
+		private String getNextBranchId() throws SQLException {
 		    String nextId = "B001"; // 預設初始值
 		    String pref = "B";  // 改成你的表格的流水號開頭
 
@@ -67,14 +67,14 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 			con = DriverManager.getConnection(url, userid, passwd);
 			pstmt = con.prepareStatement(INSERT_STMT);
 
-			pstmt.setString(1, getNextBranch_id());
-			pstmt.setString(2, branchVO.getBranch_name());
-			pstmt.setString(3, branchVO.getBranch_addr());
-			pstmt.setInt(4, branchVO.getSpace_qty());
+			pstmt.setString(1, getNextBranchId());
+			pstmt.setString(2, branchVO.getBranchName());
+			pstmt.setString(3, branchVO.getBranchAddr());
+			pstmt.setInt(4, branchVO.getSpaceQty());
 			pstmt.setDouble(5, branchVO.getLatitude());
 			pstmt.setDouble(6, branchVO.getLongitude());
 			pstmt.setInt(7, branchVO.getBranchStatus());
-			pstmt.setTimestamp(8, branchVO.getCreated_time());
+			pstmt.setTimestamp(8, branchVO.getCreatedTime());
 
 			pstmt.executeUpdate();
 
@@ -118,13 +118,13 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 			con = DriverManager.getConnection(url, userid, passwd);
 			pstmt = con.prepareStatement(UPDATE);
 
-			pstmt.setString(1, branchVO.getBranch_name());
-			pstmt.setString(2, branchVO.getBranch_addr());
-			pstmt.setInt(3, branchVO.getSpace_qty());
+			pstmt.setString(1, branchVO.getBranchName());
+			pstmt.setString(2, branchVO.getBranchAddr());
+			pstmt.setInt(3, branchVO.getSpaceQty());
 			pstmt.setDouble(4, branchVO.getLatitude());
 			pstmt.setDouble(5, branchVO.getLongitude());
 			pstmt.setInt(6, branchVO.getBranchStatus());
-			pstmt.setString(7, branchVO.getBranch_id());
+			pstmt.setString(7, branchVO.getBranchId());
 
 			pstmt.executeUpdate();
 
@@ -157,7 +157,7 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 	}
 
 	@Override
-	public void delete(String branch_id) {
+	public void delete(String branchId) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -168,7 +168,7 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 			con = DriverManager.getConnection(url, userid, passwd);
 			pstmt = con.prepareStatement(DELETE);
 
-			pstmt.setString(1, branch_id);
+			pstmt.setString(1, branchId);
 
 			pstmt.executeUpdate();
 
@@ -201,7 +201,7 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 	}
 
 	@Override
-	public BranchVO findByPrimaryKey(String branch_id) {
+	public BranchVO findByPrimaryKey(String branchId) {
 
 		BranchVO branchVO = null;
 		Connection con = null;
@@ -214,21 +214,21 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 			con = DriverManager.getConnection(url, userid, passwd);
 			pstmt = con.prepareStatement(GET_ONE_STMT);
 
-			pstmt.setString(1, branch_id);
+			pstmt.setString(1, branchId);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				// branchVO 也稱為 Domain objects
 				branchVO = new BranchVO();
-				branchVO.setBranch_id(rs.getString("branch_id"));
-				branchVO.setBranch_name(rs.getString("branch_name"));
-				branchVO.setBranch_addr(rs.getString("branch_addr"));
-				branchVO.setSpace_qty(rs.getInt("space_qty"));
+				branchVO.setBranchId(rs.getString("branch_id"));
+				branchVO.setBranchName(rs.getString("branch_name"));
+				branchVO.setBranchAddr(rs.getString("branch_addr"));
+				branchVO.setSpaceQty(rs.getInt("space_qty"));
 				branchVO.setLatitude(rs.getDouble("latitude"));
 				branchVO.setLongitude(rs.getDouble("longitude"));
 				branchVO.setBranchStatus(rs.getInt("branchstatus"));
-				branchVO.setCreated_time(rs.getTimestamp("created_time"));
+				branchVO.setCreatedTime(rs.getTimestamp("created_time"));
 			}
 
 			// Handle any driver errors
@@ -285,14 +285,14 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 			while (rs.next()) {
 				// branchVO 也稱為 Domain objects
 				branchVO = new BranchVO();
-				branchVO.setBranch_id(rs.getString("branch_id"));
-				branchVO.setBranch_name(rs.getString("branch_name"));
-				branchVO.setBranch_addr(rs.getString("branch_addr"));
-				branchVO.setSpace_qty(rs.getInt("space_qty"));
+				branchVO.setBranchId(rs.getString("branch_id"));
+				branchVO.setBranchName(rs.getString("branch_name"));
+				branchVO.setBranchAddr(rs.getString("branch_addr"));
+				branchVO.setSpaceQty(rs.getInt("space_qty"));
 				branchVO.setLatitude(rs.getDouble("latitude"));
 				branchVO.setLongitude(rs.getDouble("longitude"));
 				branchVO.setBranchStatus(rs.getInt("branchstatus"));
-				branchVO.setCreated_time(rs.getTimestamp("created_time"));
+				branchVO.setCreatedTime(rs.getTimestamp("created_time"));
 				list.add(branchVO); // Store the row in the list
 			}
 
@@ -337,9 +337,9 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 
 //		 新增
 //		BranchVO branchVO1 = new BranchVO();
-//		branchVO1.setBranch_name("台北分店");
-//		branchVO1.setBranch_addr("台北市信義區信義路5段7號");
-//		branchVO1.setSpace_qty(50);
+//		branchVO1.setBranchName("台北分店");
+//		branchVO1.setBranchAddr("台北市信義區信義路5段7號");
+//		branchVO1.setSpaceQty(50);
 //		branchVO1.setLatitude(25.033611);
 //		branchVO1.setLongitude(121.564444);
 //		branchVO1.setBranchStatus(1);
@@ -347,10 +347,10 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 
 		// 修改
 //		BranchVO branchVO2 = new BranchVO();
-//		branchVO2.setBranch_id("B001");
-//		branchVO2.setBranch_name("台北總店");
-//		branchVO2.setBranch_addr("台北市信義區信義路5段6號");
-//		branchVO2.setSpace_qty(60);
+//		branchVO2.setBranchId("B001");
+//		branchVO2.setBranchName("台北總店");
+//		branchVO2.setBranchAddr("台北市信義區信義路5段6號");
+//		branchVO2.setSpaceQty(60);
 //		branchVO2.setLatitude(25.222222);
 //		branchVO2.setLongitude(121.222222);
 //		branchVO2.setBranchStatus(1);
@@ -361,27 +361,27 @@ public class BranchJDBCDAO implements BranchDAO_interface {
 
 		// 查詢
 //		BranchVO branchVO3 = dao.findByPrimaryKey("B002");
-//		System.out.print(branchVO3.getBranch_id() + ",");
-//		System.out.print(branchVO3.getBranch_name() + ",");
-//		System.out.print(branchVO3.getBranch_addr() + ",");
-//		System.out.print(branchVO3.getSpace_qty() + ",");
+//		System.out.print(branchVO3.getBranchId() + ",");
+//		System.out.print(branchVO3.getBranchName() + ",");
+//		System.out.print(branchVO3.getBranchAddr() + ",");
+//		System.out.print(branchVO3.getSpaceQty() + ",");
 //		System.out.print(branchVO3.getLatitude() + ",");
 //		System.out.print(branchVO3.getLongitude() + ",");
 //		System.out.print(branchVO3.getBranchStatus() + ",");
-//		System.out.print(branchVO3.getCreated_time() + ",");
+//		System.out.print(branchVO3.getCreatedTime() + ",");
 //		System.out.println("---------------------");
 
 		// 查詢
 		List<BranchVO> list = dao.getAll();
 		for (BranchVO aBranch : list) {
-			System.out.print(aBranch.getBranch_id() + ",");
-			System.out.print(aBranch.getBranch_name() + ",");
-			System.out.print(aBranch.getBranch_addr() + ",");
-			System.out.print(aBranch.getSpace_qty() + ",");
+			System.out.print(aBranch.getBranchId() + ",");
+			System.out.print(aBranch.getBranchName() + ",");
+			System.out.print(aBranch.getBranchAddr() + ",");
+			System.out.print(aBranch.getSpaceQty() + ",");
 			System.out.print(aBranch.getLatitude() + ",");
 			System.out.print(aBranch.getLongitude() + ",");
 			System.out.print(aBranch.getBranchStatus() + ",");
-			System.out.print(aBranch.getCreated_time() + ",");
+			System.out.print(aBranch.getCreatedTime() + ",");
 			System.out.println();
 		}
 	}

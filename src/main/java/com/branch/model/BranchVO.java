@@ -2,14 +2,14 @@ package com.branch.model;
 import java.sql.Timestamp;
 
 public class BranchVO implements java.io.Serializable {
-    private String branch_id;
-    private String branch_name;
-    private String branch_addr;
-    private Integer space_qty;
+    private String branchId;
+    private String branchName;
+    private String branchAddr;
+    private Integer spaceQty;
     private Double latitude;
     private Double longitude;
     private Integer branchStatus;
-    private Timestamp created_time;
+    private Timestamp createdTime;
     
     
     // 空構造函數
@@ -17,36 +17,36 @@ public class BranchVO implements java.io.Serializable {
     }
     
     // getter 和 setter 方法
-    public String getBranch_id() {
-        return branch_id;
+    public String getBranchId() {
+        return branchId;
     }
     
-    public void setBranch_id(String branch_id) {
-        this.branch_id = branch_id;
+    public void setBranchId(String branchId) {
+        this.branchId = branchId;
     }
     
-    public String getBranch_name() {
-        return branch_name;
+    public String getBranchName() {
+        return branchName;
     }
     
-    public void setBranch_name(String branch_name) {
-        this.branch_name = branch_name;
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
     }
     
-    public String getBranch_addr() {
-        return branch_addr;
+    public String getBranchAddr() {
+        return branchAddr;
     }
     
-    public void setBranch_addr(String branch_addr) {
-        this.branch_addr = branch_addr;
+    public void setBranchAddr(String branchAddr) {
+        this.branchAddr = branchAddr;
     }
     
-    public Integer getSpace_qty() {
-        return space_qty;
+    public Integer getSpaceQty() {
+        return spaceQty;
     }
     
-    public void setSpace_qty(Integer space_qty) {
-        this.space_qty = space_qty;
+    public void setSpaceQty(Integer spaceQty) {
+        this.spaceQty = spaceQty;
     }
     
     public Double getLatitude() {
@@ -83,12 +83,12 @@ public class BranchVO implements java.io.Serializable {
 		this.branchStatus = branchStatus;
 	}
     
-    public Timestamp getCreated_time() {
-        return created_time;
+    public Timestamp getCreatedTime() {
+        return createdTime;
     }
     
-    public void setCreated_time(Timestamp created_time) {
-        this.created_time = created_time;
+    public void setCreatedTime(Timestamp createdTime) {
+        this.createdTime = createdTime;
     }
     
  
